@@ -29,10 +29,11 @@ def coordenas_imagemMM(caminho, width, height, column, row):
     delta_x = (K1 * np.power(r,2) + K2 * np.power(r,4) + K3 * np.power(r,6)) * x + (P1 * (np.power(r,2) + 2 * np.power(x,2) + 2 * P2 * x * y))
     delta_y = (K1 * np.power(r,2) + K2 * np.power(r,4) + K3 * np.power(r,6)) * y + (P2 * (np.power(r,2) + 2 * np.power(y,2) + 2 * P1 * x * y))
 
+    
+    
     x = (x - delta_x)
     y = (y - delta_y)
     z = (-f)
-        
-    f = open("Dados/IOCoordinates.txt","a+")
-    f.write("" + str(x) + "," + str(y) + "," + str(z) + "\n")
-    f.close()
+    
+    lista = np.array([x,y,z])    
+    return lista

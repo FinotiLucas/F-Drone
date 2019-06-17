@@ -2,13 +2,18 @@ import os.path
 try:
     from PyQt5.QtCore import Qt, QRectF, pyqtSignal, QT_VERSION_STR
     from PyQt5.QtGui import QImage, QPixmap, QPainterPath
-    from PyQt5.QtWidgets import QGraphicsView, QGraphicsScene, QFileDialog
+    from PyQt5.QtWidgets import QGraphicsView, QGraphicsScene, QFileDialog, QMainWindow
 except ImportError:
     try:
         from PyQt4.QtCore import Qt, QRectF, pyqtSignal, QT_VERSION_STR
         from PyQt4.QtGui import QGraphicsView, QGraphicsScene, QImage, QPixmap, QPainterPath, QFileDialog
     except ImportError:
         raise ImportError("QtImageViewer: Requires PyQt5 or PyQt4.")
+
+import json
+from Funcoes import IO
+from Dialogos import DFormCoordenadas
+
 
 class QtImageViewer(QGraphicsView):
 
@@ -183,15 +188,8 @@ class QtImageViewer(QGraphicsView):
     
     
     def handleLeftClick(self, x, y):
-        import json
         row = float(y)
         column = float(x)
-            
-        f = open("Dados/ImageCoordinates.txt","a+")
-        f.write("" + str(column) + "," + str(row) + "\n")
-        
-        from Funcoes import IO
-        IO.coordenas_imagemMM("Json/InteriorOrientationData.json", self.width, self.height, column, row)
 
-        f.close()
-    
+        self.viewer = DFormCoordenadas.DialogoCoordenadas(self)
+        self.viewer.IO(column,row,self.width,self.height)

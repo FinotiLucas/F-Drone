@@ -107,3 +107,9 @@ ZONA = "ZONAs"
 ELIPSOIDE = "Elipsoide de Referencia"
 DATUM = "Datum de Referencia"
 UNIDADE = "Unidade de Medida"
+
+#####################################################################
+# Pegar coordenadas.
+
+X_TERRENO = "Este"
+Y_TERRENO = "Norte"

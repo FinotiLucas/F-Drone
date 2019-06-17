@@ -1,5 +1,5 @@
 import numpy as np
-import json
+import json,math
 
 def PlanejamentodeVoo(caminho_json):
 
