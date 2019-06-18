@@ -20,12 +20,13 @@ class DialogoCoordenadas(QDialog):
         # Título da Janela
         self.titulo = textos.JANELA_ORIENTACAO_INTERIOR
         # Geometria da Janela
-        self.topo = medidas.topo
-        self.esquerda = medidas.esquerda
-        self.largura = medidas.dialogo_largura
-        self.altura = medidas.dialogo_altura
+        self.topo = medidas.topo_ponto
+        self.esquerda = medidas.esquerda_ponto
+        self.largura = medidas.dialogo_largura_ponto
+        self.altura = medidas.dialogo_altura_ponto
 
         # Formulário
+        self.le_nome = QLineEdit()
         self.le_X = QLineEdit()
         self.le_Y = QLineEdit()
 
@@ -40,6 +41,7 @@ class DialogoCoordenadas(QDialog):
         # Entradas
         self.form_novo_projeto_gb = QGroupBox("Coordenada dos pontos no terreno")
         layout_form = QFormLayout()
+        layout_form.addRow(QLabel(textos.NOME_PONTO), self.le_nome)
         layout_form.addRow(QLabel(textos.X_TERRENO), self.le_X)
         layout_form.addRow(QLabel(textos.Y_TERRENO), self.le_Y)
 
@@ -76,6 +78,7 @@ class DialogoCoordenadas(QDialog):
         self.x = IO.coordenas_imagemMM("Json/InteriorOrientationData.json", self.width, self.height, self.column, self.row)
 
         self.comunicador = [
+            self.le_nome.text(),
             self.x[0],
             self.x[1],
             self.x[2],
@@ -104,7 +107,7 @@ class DialogoCoordenadas(QDialog):
             
             with open(path["Path"] + "/Json/Coordinates.json") as IO:
                 data = json.load(IO)
-                
+            data['Nome'] = str(data['Nome']) + str(",") + str(comunicador[0])    
             data['X'] = str(data['X']) + str(",") + str(comunicador[0])
             data['Y'] = str(data['Y']) + str(",") +  str(comunicador[1])
             data['Z'] = str(data['Z']) + str(",") +  str(comunicador[2])
@@ -117,11 +120,12 @@ class DialogoCoordenadas(QDialog):
         else:
             
             data1 = {
-                "X":comunicador[0],
-                "Y":comunicador[1],
-                "Z":comunicador[2],
-                "Este":comunicador[3],
-                "Norte":comunicador[4]
+                "Nome":comunicador[0],
+                "X":comunicador[1],
+                "Y":comunicador[2],
+                "Z":comunicador[3],
+                "Este":comunicador[4],
+                "Norte":comunicador[5]
             }
             with open(path["Path"] + "/Json/Coordinates.json", "w") as write_file:
                 json.dump(data1, write_file)

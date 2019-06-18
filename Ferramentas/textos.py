@@ -110,6 +110,6 @@ UNIDADE = "Unidade de Medida"
 
 #####################################################################
 # Pegar coordenadas.
-
-X_TERRENO = "Este"
-Y_TERRENO = "Norte"
+NOME_PONTO = "Nome do Ponto"
+X_TERRENO = "Coordenada Este"
+Y_TERRENO = "Coordenada Norte"

@@ -24,6 +24,8 @@ Implementado mas não inserido:
 
 
 Não implementado:
+Colocar um simbolo no ponto escolhido;
+Remover pontos escolhidos pelo usuário
 Receber as Coordenadas de Pontos de controle;
 Exportar as coordenadas do planejamento de Voo para Shapefile;
 Salvar e carregar projeto;
@@ -34,6 +36,6 @@ Modelo Digital de Terreno;
 Método Surf e Sift para coleta de pontos homologos.
 
 
-  # Run FDrone.py (Crie um novo diretorio, nao rode dentro da pasta original)
+  # Run FDrone.py (Crie um novo diretorio, nao use o diretório raiz como pasta de projeto)
 
 Bibliography: Introduction to Modern Photogrammetry of Edward M. Milkhail and James S. Bethel, J.Chris McGlone
