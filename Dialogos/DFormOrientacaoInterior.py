@@ -1,7 +1,7 @@
 from Ferramentas import ler, textos, medidas
 from SubJanelas import Tabela
 from PyQt5.QtWidgets import (QFileDialog, QPushButton, QDialog, QDialogButtonBox, QFormLayout, QGroupBox, QLabel, QLineEdit, QComboBox, QVBoxLayout)
-import json
+import json, os
 
 class DialogoOrientacaoInterior(QDialog):
 
@@ -98,22 +98,29 @@ class DialogoOrientacaoInterior(QDialog):
         self.CriarJson(self.comunicador)
  
     def CriarJson(self, comunicador):
+    
+        with open("settings.json") as setting:
+            path = json.load(setting)
+     
+        exists = os.path.isfile("settings.json")
         
-        data = {
-                "Camera":comunicador[0],
-                "x0":comunicador[1],
-                "y0":comunicador[2],
-                "K1":comunicador[3],
-                "K2":comunicador[4],
-                "K3":comunicador[5],
-                "P1":comunicador[6],
-                "P2":comunicador[7],
-                "f":comunicador[8],
-                "Tamanho do Sensor":comunicador[9]
-            }
-        
-        with open("Json/InteriorOrientationData.json", "w") as write_file:
-            json.dump(data, write_file)
+        if exists:
+                
+            data = {
+                    "Camera":comunicador[0],
+                    "x0":comunicador[1],
+                    "y0":comunicador[2],
+                    "K1":comunicador[3],
+                    "K2":comunicador[4],
+                    "K3":comunicador[5],
+                    "P1":comunicador[6],
+                    "P2":comunicador[7],
+                    "f":comunicador[8],
+                    "Tamanho do Sensor":comunicador[9]
+                }
+            
+            with open(path['Path'] + "/Json/InteriorOrientationData.json", "w") as write_file:
+                json.dump(data, write_file)
         
         self.close()
 

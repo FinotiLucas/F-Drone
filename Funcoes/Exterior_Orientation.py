@@ -22,15 +22,17 @@ def Matriz_M(w, phi, k):
     M = np.dot(aux, M_w)
     return M
 
-def Colinealidade(M,focallength):
+def Colinealidade(M,focallength, XL, YL, ZL, X, Y, Z):
     # https://www.researchgate.net/publication/267295628_AEROTRIANGULACAO_DE_AEROFOTOS_DIGITAIS_NO_SISTEMA_MONORESTITUIDOR
     # Falta importar os parâmetros (Pegada de dados pela interface gráfica)
+    
     uvw = np.dot( M, np.matrix([[X-XL], [Y-YL], [Z-ZL]]))
     # xp = x - x0
     # yp = y - y0
-    for i in range(len(M[0])):
-        xp = - focallength * uvw[1,i] / uvw[3,i]
-        yp = - focallength * uvw[2,i] / uvw[3,i]
-        COL = np.matrix(xp, yp)
+
+    xp = - focallength * ((uvw[0,0] + uvw[0,1] + uvw[0,2]) / (uvw[2,0]+ uvw[2,1]+ uvw[2,2]))
+    yp = - focallength * ((uvw[1,0] + uvw[1,1] + uvw[1,2]) / (uvw[2,0]+ uvw[2,1]+ uvw[2,2]))
     
+    COL = np.matrix(xp, yp)
+
     return  COL

@@ -95,12 +95,14 @@ class DialogoCoordenadas(QDialog):
          
     def CriarJson(self, comunicador):
         
+        with open("settings.json") as setting:
+            path = json.load(setting)        
 
-        exists = os.path.isfile("Json/Coords.json")
+        exists = os.path.isfile(path["Path"] + "/Json/Coordinates.json")
         
         if exists:
             
-            with open("Json/Coords.json") as IO:
+            with open(path["Path"] + "/Json/Coordinates.json") as IO:
                 data = json.load(IO)
                 
             data['X'] = str(data['X']) + str(",") + str(comunicador[0])
@@ -109,7 +111,7 @@ class DialogoCoordenadas(QDialog):
             data['Este'] = str(data['Este']) + str(",") +  str(comunicador[3])
             data['Norte'] =  str(data['Norte']) + str(",") +  str(comunicador[4])
             
-            with open("Json/Coords.json", "w+") as write_file:
+            with open(path["Path"] + "/Json/Coordinates.json", "w+") as write_file:
                 json.dump(data, write_file)
         
         else:
@@ -121,7 +123,7 @@ class DialogoCoordenadas(QDialog):
                 "Este":comunicador[3],
                 "Norte":comunicador[4]
             }
-            with open("Json/Coords.json", "w") as write_file:
+            with open(path["Path"] + "/Json/Coordinates.json", "w") as write_file:
                 json.dump(data1, write_file)
         
         
