@@ -26,12 +26,20 @@ class DialogoCoordenadas(QDialog):
         self.altura = medidas.dialogo_altura_ponto
 
         # Formulário
+        
         self.le_nome = QLineEdit()
+        self.le_tipo = QComboBox()
         self.le_X = QLineEdit()
         self.le_Y = QLineEdit()
+        self.le_Z = QLineEdit()
 
 
         self.IniciarDialogoFormNovoProjeto()
+
+        self.le_tipo.addItem("Ponto de Controle")
+        self.le_tipo.addItem("Ponto de Passagem")
+        
+
 
     """
         Métodos
@@ -42,8 +50,10 @@ class DialogoCoordenadas(QDialog):
         self.form_novo_projeto_gb = QGroupBox("Coordenada dos pontos no terreno")
         layout_form = QFormLayout()
         layout_form.addRow(QLabel(textos.NOME_PONTO), self.le_nome)
+        layout_form.addRow(QLabel(textos.NOME_TIPO), self.le_tipo)     
         layout_form.addRow(QLabel(textos.X_TERRENO), self.le_X)
         layout_form.addRow(QLabel(textos.Y_TERRENO), self.le_Y)
+        layout_form.addRow(QLabel(textos.Z_TERRENO), self.le_Z)
 
 
         self.form_novo_projeto_gb.setLayout(layout_form)
@@ -75,15 +85,17 @@ class DialogoCoordenadas(QDialog):
 
     def ok(self):
         
-        self.x = IO.coordenas_imagemMM("Json/InteriorOrientationData.json", self.width, self.height, self.column, self.row)
+        self.x = IO.coordenas_imagemMM(self.width, self.height, self.column, self.row)
 
         self.comunicador = [
             self.le_nome.text(),
+            self.le_tipo.currentText(),
             self.x[0],
             self.x[1],
             self.x[2],
             float(self.le_X.text()),        
             float(self.le_Y.text()),
+            float(self.le_Z.text()),
         ]
         self.CriarJson(self.comunicador)
 
@@ -107,12 +119,15 @@ class DialogoCoordenadas(QDialog):
             
             with open(path["Path"] + "/Json/Coordinates.json") as IO:
                 data = json.load(IO)
-            data['Nome'] = str(data['Nome']) + str(",") + str(comunicador[0])    
-            data['X'] = str(data['X']) + str(",") + str(comunicador[0])
-            data['Y'] = str(data['Y']) + str(",") +  str(comunicador[1])
-            data['Z'] = str(data['Z']) + str(",") +  str(comunicador[2])
-            data['Este'] = str(data['Este']) + str(",") +  str(comunicador[3])
-            data['Norte'] =  str(data['Norte']) + str(",") +  str(comunicador[4])
+            data['Nome'] = str(data['Nome']) + str(",") + str(comunicador[0])
+            data['Tipo'] = data['Tipo'] + str(",") + str(comunicador[1])
+            data['X'] = str(data['X']) + str(",") + str(comunicador[2])
+            data['Y'] = str(data['Y']) + str(",") +  str(comunicador[3])
+            data['Z'] = str(data['Z']) + str(",") +  str(comunicador[4])
+            data['Este'] = str(data['Este']) + str(",") +  str(comunicador[5])
+            data['Norte'] =  str(data['Norte']) + str(",") +  str(comunicador[6])
+            data['Altitude'] =  str(data['Altitude']) + str(",") +  str(comunicador[7])
+
             
             with open(path["Path"] + "/Json/Coordinates.json", "w+") as write_file:
                 json.dump(data, write_file)
@@ -121,14 +136,17 @@ class DialogoCoordenadas(QDialog):
             
             data1 = {
                 "Nome":comunicador[0],
-                "X":comunicador[1],
-                "Y":comunicador[2],
-                "Z":comunicador[3],
-                "Este":comunicador[4],
-                "Norte":comunicador[5]
+                "Tipo":comunicador[1],
+                "X":comunicador[2],
+                "Y":comunicador[3],
+                "Z":comunicador[4],
+                "Este":comunicador[5],
+                "Norte":comunicador[6],
+                "Altitude":comunicador[7],
             }
             with open(path["Path"] + "/Json/Coordinates.json", "w") as write_file:
                 json.dump(data1, write_file)
+
         
         
         self.close()

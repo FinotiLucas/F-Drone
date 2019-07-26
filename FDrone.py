@@ -1,5 +1,5 @@
 import sys
-from Dialogos import DFormNovoProjeto, DFormUTM, DFormPlanejamentoDeVoo, DFormOrientacaoInterior, DFormSpatialReference
+from Dialogos import DFormNovoProjeto, DFormUTM, DFormPlanejamentoDeVoo, DFormOrientacaoInterior, DFormSpatialReference, DFormSpaceResection
 from Ferramentas import ler, textos, medidas
 from PyQt5 import QtGui
 from PyQt5.QtGui import QIcon
@@ -9,6 +9,7 @@ from SubJanelas import ImageViewer
 import json
 import os
 import sys
+
 
 class FDrone(QMainWindow):
 
@@ -100,6 +101,12 @@ class FDrone(QMainWindow):
         self.mb_planejamento_voo.setStatusTip("Planejamento de Voo")
         self.mb_planejamento_voo.triggered.connect(self.PlanejamentoDeVoo)
         self.menu_arquivo.addAction(self.mb_planejamento_voo)
+        # Submenu menu Projeto - Referência Espacial
+        self.mb_spaceresection = QAction(QtGui.QIcon("icones/drone-icons/svg/031-radar.svg"), "Recessão Espacial", self)
+        self.mb_spaceresection.setShortcut("Ctrl+R")
+        self.mb_spaceresection.setStatusTip("Recessão Espacial")
+        self.mb_spaceresection.triggered.connect(self.SpaceResection)
+        self.menu_arquivo.addAction(self.mb_spaceresection)
         # Submenu menu Projeto - Datum
         self.mb_spatial_reference = QAction(QtGui.QIcon("icones/drone2-icons/svg/placeholder.svg"), "Referencia Espacial", self)
         self.mb_spatial_reference.setShortcut("Ctrl+R")
@@ -155,6 +162,10 @@ class FDrone(QMainWindow):
 
     def SpatialReference(self):
         self.formulario_spatial_reference = DFormSpatialReference.DialogoFormSpatialReference(self)
+
+    def SpaceResection(self):
+        self.formulario_space_resection = DFormSpaceResection.DialogoSpaceResection(self)
+
 
     def AbrirImagem(self):
         self.viewer = ImageViewer.QtImageViewer()

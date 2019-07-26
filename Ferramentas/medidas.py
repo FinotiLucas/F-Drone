@@ -10,8 +10,8 @@ dialogo_altura = 300
 # Referentes a coleta de Pontos
 topo_ponto = 150
 esquerda_ponto = 100
-largura_ponto = 300
+largura_ponto = 250
 altura_ponto = 300
 
-dialogo_largura_ponto = 250
+dialogo_largura_ponto = 320
 dialogo_altura_ponto = 150

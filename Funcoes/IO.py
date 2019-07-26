@@ -1,20 +1,26 @@
 import numpy as np
-import json
+import json, os
 
-def coordenas_imagemMM(caminho, width, height, column, row):
+def coordenas_imagemMM(width, height, column, row):
 
-    with open(caminho) as IO:
-        data = json.load(IO)
-        
-    x0 = float(data['x0'])
-    y0 = float(data['y0'])
-    K1 = float(data['K1'])
-    K2 = float(data['K2'])
-    K3 = float(data['K3'])
-    P1 = float(data['P1'])
-    P2 = float(data['P2'])
-    f  = float(data['f'])
-    sensor_width = float(data['Tamanho do Sensor'])
+    with open("settings.json") as setting:
+        path = json.load(setting)        
+
+    exists = os.path.isfile(path["Path"] + "/Json/InteriorOrientationData.json")
+    
+    if exists:
+        with open(path["Path"] + "/Json/InteriorOrientationData.json") as IO:
+            data = json.load(IO)
+            
+        x0 = float(data['x0'])
+        y0 = float(data['y0'])
+        K1 = float(data['K1'])
+        K2 = float(data['K2'])
+        K3 = float(data['K3'])
+        P1 = float(data['P1'])
+        P2 = float(data['P2'])
+        f  = float(data['f'])
+        sensor_width = float(data['Tamanho do Sensor'])
 
     pixel_size = sensor_width / width  # unit: mm/px
 

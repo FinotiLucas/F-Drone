@@ -111,5 +111,15 @@ UNIDADE = "Unidade de Medida"
 #####################################################################
 # Pegar coordenadas.
 NOME_PONTO = "Nome do Ponto"
+NOME_TIPO = "Tipo de Ponto"
 X_TERRENO = "Coordenada Este"
 Y_TERRENO = "Coordenada Norte"
+Z_TERRENO = "Altitude do Ponto"
+
+
+#######################################################################3
+# SpaceResection
+JANELA_RECSSAO_ESPACIAL = "Recessão Espacial"
+X_RESSECTION = "Chute Inicial X: "
+Y_RESSECTION = "Chute Inicial Y: "
+Z_RESSECTION = "Chute Inicial Z: "
