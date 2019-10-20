@@ -1,9 +1,9 @@
 # F-Drone Versão 0.0.2
 Date of Birth 03/06/2019  
 
-Processador digital de imagens fotogramétricas provinientes de Drones, criado com a motivação de ser útil para a comunidade acadêmica e ser uma alternativa Open Source aos programas profissionais já existentes.  
+Processador digital de imagens provinientes de Drones, criado com a motivação de ser útil para a comunidade acadêmica e ser uma alternativa Open Source aos programas profissionais já existentes.  
 
-Digital photogrammetric image processor for Drones, created with the motivation to be useful to the academic community and be an Open Source alternative to existing professional programs.  
+Digital image processor for Drones, created with the motivation to be useful to the academic community and be an Open Source alternative to existing professional programs.  
 
 
 Funcionando:
