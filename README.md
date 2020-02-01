@@ -134,3 +134,4 @@ Copyright (c) 2020 Lucas Finoti.
 
 [See more about the license][LICENSE]
 
+[LICENSE]: <https://github.com/AliatiSoftware/nominatim_location_picker/blob/master/LICENSE>
