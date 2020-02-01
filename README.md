@@ -30,11 +30,11 @@ Digital image processor for Drones, created with the motivation to be useful to 
 - Métodos Surf e Sift para coleta de pontos homologos.
 
 
-## Install
+## Instalação e Configuração
 
 -----------
 
-``` shell
+``` python
 pip install -r requirements.txt
 
 python FDrone.py
@@ -43,19 +43,19 @@ python FDrone.py
 
 
 ## Fotos
-![Interface](https://github.com/FinotiLucas/F-Drone/blob/master/screenshots/1.png?raw=true "Interface")
+![Interface](https://github.com/FinotiLucas/F-Drone/blob/master/ScreenShots/1.png?raw=true "Interface")
 
-![Interface](https://github.com/FinotiLucas/F-Drone/blob/master/screenshots/2.png?raw=true "Interface")
+![Interface](https://github.com/FinotiLucas/F-Drone/blob/master/ScreenShots/2.png?raw=true "Interface")
 
-![Interface](https://github.com/FinotiLucas/F-Drone/blob/master/screenshots/3.png?raw=true "Interface")
+![Interface](https://github.com/FinotiLucas/F-Drone/blob/master/ScreenShots/3.png?raw=true "Interface")
 
 
 # Planejamento de Vôo
 
-![Interface](https://github.com/FinotiLucas/F-Drone/blob/master/screenshots/4.png?raw=true "Interface")
+![Interface](https://github.com/FinotiLucas/F-Drone/blob/master/ScreenShots/4.png?raw=true "Interface")
 
 # Exemplo de resultado:
-![Interface](https://github.com/FinotiLucas/F-Drone/blob/master/screenshots/pv.png?raw=true "Interface")
+![Interface](https://github.com/FinotiLucas/F-Drone/blob/master/ScreenShots/pv.png?raw=true "Interface")
 
 # Exemplo de resultado em Json: 
 
@@ -134,10 +134,3 @@ Copyright (c) 2020 Lucas Finoti.
 
 [See more about the license][LICENSE]
 
-   [LFGh]: <https://github.com/FinotiLucas>
-   [JPGh]: <https://github.com/jpmdodev>
-   [LICENSE]: <https://github.com/AliatiSoftware/nominatim_location_picker/blob/master/LICENSE>
-   [GMLP]: <https://pub.dev/packages/google_map_location_picker>
-   [NNT]: <https://nominatim.org/release-docs/develop/>
-   [OSM]: <https://www.openstreetmap.org>
-   [WMM]: <http://wikimapia.org/>
