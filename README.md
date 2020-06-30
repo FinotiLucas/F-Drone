@@ -37,25 +37,25 @@ Digital image processor for Drones, created with the motivation to be useful to 
 ``` python
 pip install -r requirements.txt
 
-python FDrone.py
+python main.py
 ```
 - OBS: (Crie um novo diretorio ao utilizar o FDrone, não use o diretório raiz como pasta de projeto)
 
 
 ## Fotos
-![Interface](https://github.com/FinotiLucas/F-Drone/blob/master/ScreenShots/1.png?raw=true "Interface")
+![Interface](https://github.com/FinotiLucas/F-Drone/blob/master/assets/screenshots/1.png?raw=true "Interface")
 
-![Interface](https://github.com/FinotiLucas/F-Drone/blob/master/ScreenShots/2.png?raw=true "Interface")
+![Interface](https://github.com/FinotiLucas/F-Drone/blob/master/assets/screenshots/2.png?raw=true "Interface")
 
-![Interface](https://github.com/FinotiLucas/F-Drone/blob/master/ScreenShots/3.png?raw=true "Interface")
+![Interface](https://github.com/FinotiLucas/F-Drone/blob/master/assets/screenshots/3.png?raw=true "Interface")
 
 
 # Planejamento de Vôo
 
-![Interface](https://github.com/FinotiLucas/F-Drone/blob/master/ScreenShots/4.png?raw=true "Interface")
+![Interface](https://github.com/FinotiLucas/F-Drone/blob/master/assets/screenshots/4.png?raw=true "Interface")
 
 # Exemplo de resultado:
-![Interface](https://github.com/FinotiLucas/F-Drone/blob/master/ScreenShots/pv.png?raw=true "Interface")
+![Interface](https://github.com/FinotiLucas/F-Drone/blob/master/assets/screenshots/pv.png?raw=true "Interface")
 
 # Exemplo de resultado em Json: 
 
